@@ -2,7 +2,7 @@ import random
 
 from django import template
 from django.template import Template, Variable, TemplateSyntaxError
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 from django.utils import timezone
 
 register = template.Library()
