@@ -13,7 +13,7 @@ def clean(html):
     soup = BeautifulSoup(html)
     for elem in soup.findAll(['script', 'style']):
         elem.extract()
-    return unicode(soup)
+    return str(soup)
 
 
 @register.filter
