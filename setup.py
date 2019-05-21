@@ -9,14 +9,14 @@ except ImportError:
 
 
 setup(
-    name='django-extralibs',
-    version='0.1.6',
+    name='launchpotato-extralibs',
+    version='0.1.7',
     description='A collection of extra libraries for django',
     author='Gilang Chandrasa',
     author_email='gilang@launchpotato.com',
-    url='https://github.com/launchpotato/django-extralibs',
+    url='https://github.com/launchpotato/launchpotato-extralibs',
     packages=[
-        'django_extralibs',
-        'django_extralibs/templatetags',
+        'launchpotato_extralibs',
+        'launchpotato_extralibs/templatetags',
     ],
 )
