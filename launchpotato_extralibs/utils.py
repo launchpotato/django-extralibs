@@ -1,7 +1,9 @@
 import string
 import random
+from django.utils import timezone
 import geoip2.database
 from geoip2.errors import AddressNotFoundError
+from django.utils.deconstruct import deconstructible
 
 
 DEFAULT_CHARS = string.ascii_lowercase + string.ascii_uppercase + string.digits
@@ -45,3 +47,44 @@ def geolocation(ip_address):
         'city': None,
         'country_ab': None,
     }
+
+
+@deconstructible
+class LowercaseFilename(object):
+
+    """ 
+        Function factory for lowercase filename 
+        Usage: 
+        from launchpotato_extralibs.utils import LowercaseFilename
+
+        ...
+            image = models.ImageField(upload_to=LowercaseFilename("books"))
+        ...
+    """
+
+    def __init__(self, pattern):
+        self.pattern = pattern
+
+    def __call__(self, instance, filename):
+        return os.path.join(self.pattern, filename.lower())
+
+
+@deconstructible
+class LowercaseDateFilename(object):
+
+    """ 
+        Function factory for lowercase filename with date pattern
+        Usage: 
+        from launchpotato_extralibs.utils import LowercaseFilename
+
+        ...
+            image = models.ImageField(upload_to=LowercaseFilename("books/%Y/%m"))
+        ...
+    """
+
+    def __init__(self, pattern):
+        self.pattern = pattern
+
+    def __call__(self, instance, filename):
+        today = timezone.now()
+        return os.path.join(today.strftime(self.pattern), filename.lower())
