@@ -34,12 +34,6 @@ def shuffle(arg):
     return random.shuffle(list(arg))
 
 
-@register.filter
-def filename_from_url(url):
-    if url:
-        return url.split('/')[-1]
-
-
 class RenderAsTemplateNode(template.Node):
     def __init__(self, string_to_be_rendered):
         self.string_to_be_rendered = Variable(string_to_be_rendered)

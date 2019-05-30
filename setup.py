@@ -10,7 +10,7 @@ except ImportError:
 
 setup(
     name='launchpotato-extralibs',
-    version='0.2.2',
+    version='0.2.3',
     description='A collection of extra libraries for django',
     author='Gilang Chandrasa',
     author_email='gilang@launchpotato.com',
