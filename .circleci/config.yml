@@ -6,10 +6,9 @@ jobs:
       - image: cimg/python:3.6
     steps:
       - checkout
-      - save_cache:
-          key: repo-{{.Environment.CIRCLE_SHA1}}
-          paths:
-            - ~/app
+      - run:
+          command: |
+          pip install wheel
       - run:
           command: |
             python setup.py sdist bdist_wheel
