@@ -14,4 +14,5 @@ jobs:
             python setup.py sdist bdist_wheel
       - run:
           command: |
+            echo $CIRCLE_TAG
             if [ "$CIRCLE_TAG" != "" ] ; then echo pypi-private -v publish launchpotato-extralibs $CIRCLE_TAG ; fi
