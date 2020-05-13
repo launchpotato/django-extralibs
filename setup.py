@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import os
+import sys
 
-
-
-from setuptools.command.install import install
 from setuptools import setup
-
+from setuptools.command.install import install
 
 VERSION = '0.2.13'
 
@@ -18,9 +17,7 @@ class VerifyVersionCommand(install):
         tag = os.getenv('CIRCLE_TAG')
 
         if tag != VERSION:
-            info = "Git tag: {0} does not match the version of this app: {1}".format(
-                tag, VERSION
-            )
+            info = "Git tag: {0} does not match the version of this app: {1}".format(tag, VERSION)
             sys.exit(info)
 
 

@@ -1,5 +1,5 @@
-from django.conf import settings
 import geoip2.database
+from django.conf import settings
 from geoip2.errors import AddressNotFoundError
 
 

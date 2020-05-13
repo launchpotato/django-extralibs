@@ -1,10 +1,10 @@
-import unicodecsv
-
 from datetime import datetime
+
+import unicodecsv
 from django.contrib import admin
-from django.utils import timezone
 from django.http import HttpResponse
 from django.template.defaultfilters import slugify
+from django.utils import timezone
 
 
 class CSVAdmin(admin.ModelAdmin):
@@ -25,12 +25,8 @@ class CSVAdmin(admin.ModelAdmin):
 
     def csv_export(self, request, qs=None, *args, **kwargs):
         response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename=%s.csv' \
-            % slugify(self.model.__name__)
-        if self.export_fields:
-            headers = self.export_fields
-        else:
-            headers = list(self.list_display)
+        response['Content-Disposition'] = 'attachment; filename=%s.csv' % slugify(self.model.__name__)
+        headers = self.export_fields if self.export_fields else list(self.list_display)
         writer = unicodecsv.DictWriter(response, headers)
 
         # Write header.
@@ -74,5 +70,5 @@ class CSVAdmin(admin.ModelAdmin):
                     data[name] = data[name]()
             writer.writerow(data)
         return response
-    csv_export.short_description = \
-        'Exported selected %(verbose_name_plural)s as CSV'
+
+    csv_export.short_description = 'Exported selected %(verbose_name_plural)s as CSV'

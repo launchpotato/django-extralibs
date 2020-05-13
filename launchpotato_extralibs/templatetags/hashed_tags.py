@@ -1,14 +1,15 @@
 from hashlib import md5, sha1, sha256
 
 from django import template
-register = template.Library()
 
+register = template.Library()
 
 dispatcher = {
     'md5': md5,
     'sha1': sha1,
     'sha256': sha256
 }
+
 
 @register.simple_tag
 def hashed(value, hashed_function='md5'):

@@ -1,8 +1,8 @@
 import random
 
-from django import template
-from django.template import Template, Variable, TemplateSyntaxError
 from bs4 import BeautifulSoup
+from django import template
+from django.template import Template, TemplateSyntaxError, Variable
 from django.utils import timezone
 
 register = template.Library()
@@ -22,14 +22,12 @@ def domain_from_email(email):
         return email.split("@")[-1]
 
 
-
 @register.filter(name='email_domain')
 def email_domain(value):
     if '@' not in value:
         return ''
     else:
-        domain = value.split('@')[-1]
-        return domain
+        return value.split('@')[-1]
 
 
 @register.filter
@@ -60,7 +58,7 @@ class RenderAsTemplateNode(template.Node):
 def render_as_template(parser, token):
     tokens = token.split_contents()
     if len(tokens) != 2:
-        raise TemplateSyntaxError("'%s' takes one argument (a variable representing a template to render)" % tokens[0])    
+        raise TemplateSyntaxError("'%s' takes one argument (a variable representing a template to render)" % tokens[0])
     return RenderAsTemplateNode(tokens[1])
 
 
@@ -69,4 +67,3 @@ def set_session(context, key, value):
     request = context['request']
     request.session[key] = value
     return ''
-

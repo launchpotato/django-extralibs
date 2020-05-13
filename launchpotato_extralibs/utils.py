@@ -1,8 +1,9 @@
-import string
+import os
 import random
+import string
+
 from django.utils import timezone
 from django.utils.deconstruct import deconstructible
-
 
 DEFAULT_CHARS = string.ascii_lowercase + string.ascii_uppercase + string.digits
 
@@ -16,21 +17,16 @@ def get_user_ip(request):
     try:
         x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR", None)
         remote_addr = request.META.get('REMOTE_ADDR', None)
-        if x_forwarded_for:
-            ip = x_forwarded_for.split(',')[0]
-        else:
-            ip = remote_addr
-        return ip
+        return x_forwarded_for.split(',')[0] if x_forwarded_for else remote_addr
     except:
         return None
 
 
 @deconstructible
 class LowercaseFilename(object):
-
-    """ 
-        Function factory for lowercase filename 
-        Usage: 
+    """
+        Function factory for lowercase filename
+        Usage:
         from launchpotato_extralibs.utils import LowercaseFilename
 
         ...
@@ -47,10 +43,9 @@ class LowercaseFilename(object):
 
 @deconstructible
 class LowercaseDateFilename(object):
-
-    """ 
+    """
         Function factory for lowercase filename with date pattern
-        Usage: 
+        Usage:
         from launchpotato_extralibs.utils import LowercaseFilename
 
         ...

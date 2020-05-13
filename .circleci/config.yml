@@ -1,4 +1,5 @@
 version: 2.1
+
 jobs:
   build:
     working_directory: ~/app
@@ -16,7 +17,6 @@ jobs:
           command: |
             echo $CIRCLE_TAG
             if [ "$CIRCLE_TAG" != "" ] ; then echo pypi-private -c .pypi-private.cfg -v publish launchpotato-extralibs $CIRCLE_TAG ; fi
-
 
 workflows:
   version: 2

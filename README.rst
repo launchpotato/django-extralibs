@@ -1,5 +1,5 @@
 LaunchPotato Extralibs
-================
+======================
 
 A collections of custom template tags and other libraries.
 
@@ -9,15 +9,13 @@ Installation
 
 * Add this line to your requirements.txt::
 
-    --extra-index-url=http://pypi.launchpotato.s3-website-us-east-1.amazonaws.com/simple/ --trusted-host 
+    --extra-index-url=http://pypi.launchpotato.s3-website-us-east-1.amazonaws.com/simple/ --trusted-host
 
 * Add launchpotato-extralibs to requirements.txt::
 
     ...
     launchpotato-extralibs==0.x.x
     ...
-
-
 
 Once that's done, you should add ``launchpotato_extralibs`` to your
 ``INSTALLED_APPS`` setting::
@@ -31,7 +29,7 @@ Once that's done, you should add ``launchpotato_extralibs`` to your
         'launchpotato_extralibs',
     )
 
-That's it! 
+That's it!
 
 Updating package on S3
 ======================
