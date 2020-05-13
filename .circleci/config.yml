@@ -12,7 +12,7 @@ jobs:
             pip install wheel pypiprivate
       - run:
           command: |
-            python setup.py sdist bdist_wheel
+            python setup.py test sdist bdist_wheel
       - run:
           command: |
             echo $CIRCLE_TAG
