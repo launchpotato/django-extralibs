@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           command: |
-          pip install wheel
+            pip install wheel
       - run:
           command: |
             python setup.py sdist bdist_wheel
