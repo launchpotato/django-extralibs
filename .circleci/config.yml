@@ -15,7 +15,7 @@ jobs:
       - run:
           command: |
             echo $CIRCLE_TAG
-            if [ "$CIRCLE_TAG" != "" ] ; then echo pypi-private -c .pypi-private.cfg -v publish launchpotato-extralibs $CIRCLE_TAG ; fi
+            if [ "$CIRCLE_TAG" != "" ] ; then pypi-private -c .pypi-private.cfg -v publish launchpotato-extralibs $CIRCLE_TAG ; fi
 
 
 workflows:
