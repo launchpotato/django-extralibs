@@ -7,7 +7,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-VERSION = '0.2.11-test'
+VERSION = '0.2.12-test'
 
 
 class VerifyVersionCommand(install):

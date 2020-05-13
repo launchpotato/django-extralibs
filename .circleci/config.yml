@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  checkout_code_and_test:
+  build:
     working_directory: ~/app
     docker:
       - image: cimg/python:3.6
