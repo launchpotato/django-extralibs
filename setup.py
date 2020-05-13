@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+
+from setuptools.command.install import install
+from setuptools import setup
+
 
 VERSION = '0.2.12-test'
 
