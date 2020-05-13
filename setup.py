@@ -24,7 +24,7 @@ class VerifyVersionCommand(install):
 setup(
     name='launchpotato-extralibs',
     version=VERSION,
-    description='A collection of extra libraries for django',
+    description='A collection of extra libraries for Django.',
     author='Gilang Chandrasa',
     author_email='tech@launchpotato.com',
     url='https://github.com/launchpotato/launchpotato-extralibs',
@@ -33,8 +33,12 @@ setup(
         'launchpotato_extralibs/templatetags',
     ],
     install_requires=[
-        'beautifulsoup4'
+        'beautifulsoup4',
+        'django>=1.11',
+        'geoip2',
+        'unicodecsv',
     ],
+    python_requires='>=3.6',
     cmdclass={
         'verify': VerifyVersionCommand,
     }

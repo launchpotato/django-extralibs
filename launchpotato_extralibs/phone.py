@@ -1,5 +1,3 @@
-
-
 def phone_format(format, number):
     """
     phone_format('xxx-xxx-xxxx', 1234567890)
