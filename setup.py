@@ -8,6 +8,8 @@ from setuptools.command.install import install
 
 VERSION = '0.2.13'
 
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'launchpotato_extralibs.tests.settings')
+
 
 class VerifyVersionCommand(install):
     """Custom command to verify that the git tag matches our version"""
