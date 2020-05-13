@@ -1,20 +1,25 @@
-Django Extralibs
+LaunchPotato Extralibs
 ================
 
-A collections of custom template tags and other library.
+A collections of custom template tags and other libraries.
 
-More detail documentation available at `http://django-extralibs.readthedocs.org/ <http://django-extralibs.readthedocs.org/>`_. 
-
-You can find the Extralibs repository on `GitHub <http://github.com/launchpotato/django-extralibs/>`_.
 
 Installation
 ============
 
-Extralibs only available via github, just run::
+* Add this line to your requirements.txt::
 
-    pip install -e git://github.com/launchpotato/django-extralibs.git@0.1.1#egg=extralibs
+    --extra-index-url=http://pypi.launchpotato.s3-website-us-east-1.amazonaws.com/simple/ --trusted-host 
 
-Once that's done, you should add ``extralibs`` to your
+* Add launchpotato-extralibs to requirements.txt::
+
+    ...
+    launchpotato-extralibs==0.x.x
+    ...
+
+
+
+Once that's done, you should add ``launchpotato_extralibs`` to your
 ``INSTALLED_APPS`` setting::
 
     INSTALLED_APPS = (
@@ -23,7 +28,14 @@ Once that's done, you should add ``extralibs`` to your
         'django.contrib.sessions',
         'django.contrib.sites',
         ...
-        'extralibs',
+        'launchpotato_extralibs',
     )
 
 That's it! 
+
+Updating package on S3
+======================
+
+* Update VERSION number on setup.py
+* Create commit and tag with VERSION
+* Push tag using `git push --tags`
